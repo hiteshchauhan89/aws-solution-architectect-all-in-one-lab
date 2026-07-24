@@ -1,0 +1,103 @@
+# Lab 02 - AWS Billing Alarm
+
+This lab demonstrates how to create an AWS Budget and configure billing alerts to monitor your AWS spending.
+
+---
+
+## 1. Configure an AWS Budget
+
+### 1.1
+Open the AWS Billing Console and navigate to the **Budgets** page:
+
+https://console.aws.amazon.com/billing/home?#/budgets
+
+### 1.2
+At the top of the page, click **Create Budget**.
+
+### 1.3
+Under **Select Budget Type**, choose **Cost Budget**.
+
+### 1.4
+Click **Set up your budget**.
+
+### 1.5
+Under **Name**, enter a descriptive name for your budget, such as **Monthly Budget**.
+
+The budget name must be unique within your AWS account and can include:
+
+- Uppercase letters (A–Z)
+- Lowercase letters (a–z)
+- Spaces
+- Special characters: `_ . : / = + - % @`
+
+Under **Period**, choose how often you want the budget to reset:
+
+- **Monthly**
+- **Quarterly**
+- **Annually**
+
+### 1.6
+Under **Budgeted Amount**, enter the maximum amount you want to spend during the selected budget period.
+
+For Monthly and Quarterly budgets, enter the amount you plan to spend for each period.
+
+---
+
+## 2. Configure Budget Alerts
+
+### 2.1
+Click **Configure Alerts**.
+
+### 2.2
+Under **Alert 1**, choose one of the following alert types:
+
+- **Actual** – Sends a notification based on your current AWS spending.
+- **Forecasted** – Sends a notification when AWS predicts your spending will exceed the budget before the end of the billing period.
+
+Under **Alert Threshold**, enter the value that will trigger the notification.
+
+You can specify either:
+
+- A **Dollar Amount**
+- A **Percentage (%)** of your budget
+
+**Example:**
+
+If your monthly budget is **USD 200** and you want to receive a notification when spending reaches **USD 160 (80%)**, you can enter:
+
+- **160** (Dollar Amount)
+- **80** (% of Budget)
+
+### 2.3
+Next to the threshold value, choose the alert type:
+
+- **Dollar Amount** – Sends an alert when the specified dollar amount is exceeded.
+- **% of Budgeted Amount** – Sends an alert when the specified percentage of the budget is reached.
+
+### 2.4
+Under **Email Contacts**, enter the email address(es) that should receive budget notifications.
+
+Click **Add Email Contact**.
+
+> **Note:** You can specify up to **10 email addresses**, separated by commas.
+
+### 2.5
+Click **Confirm Budget**.
+
+### 2.6
+Review your budget configuration.
+
+Click **Create** to create the AWS Budget and enable billing alerts.
+
+---
+
+## Lab Summary
+
+In this lab, you learned how to:
+
+- Create an AWS Cost Budget
+- Configure Monthly, Quarterly, or Annual budgets
+- Set spending thresholds
+- Configure Actual and Forecasted alerts
+- Receive email notifications when your AWS spending exceeds your budget
+- Monitor AWS costs proactively using AWS Budgets

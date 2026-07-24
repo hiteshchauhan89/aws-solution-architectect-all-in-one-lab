@@ -1,0 +1,141 @@
+# Lab 01 - IAM
+
+Lab for configuring AWS Identity and Access Management (IAM) permissions following AWS security best practices.
+
+---
+
+## 1. Create an IAM User
+
+In this section, we will create an IAM user with Administrator permissions using the AWS Management Console.
+
+### 1.1
+Open the AWS IAM Dashboard:
+
+https://console.aws.amazon.com/iam/home
+
+### 1.2
+Click **Users**.
+
+### 1.3
+Click **Add User**.
+
+
+### 1.4
+Enter the user name and choose the access type.
+
+- **Programmatic Access** – Allows access using the AWS CLI or SDK.
+- **AWS Management Console Access** – Allows the user to sign in through the AWS Management Console.
+
+Click **Next: Permissions**.
+
+
+### 1.5
+The **Groups** section allows you to add the user to an IAM Group. Group creation will be covered later in this lab.
+
+### 1.6
+Select **Attach existing policies directly** and choose the required policy.
+
+For this lab, select **AdministratorAccess**.
+
+> **Note:** In production environments, follow the Principle of Least Privilege and avoid granting AdministratorAccess unless required.
+
+Click **Next: Tags**.
+
+### 1.7
+Tags help organize and manage AWS resources.
+
+For this lab, skip this step.
+
+Click **Next: Review**, then click **Create User**.
+
+---
+
+## 2. Create an IAM Group
+
+### 2.1
+Open the AWS IAM Dashboard.
+
+Click **Groups** on the left menu.
+
+Then click **Create New Group**.
+
+
+### 2.2
+Enter the group name.
+
+Click **Next Step**.
+
+### 2.3
+Choose the policy that will be attached to the group.
+
+Any user added to this group will automatically inherit these permissions.
+
+For this lab, choose **AdministratorAccess**.
+
+Click **Next Step**.
+
+
+### 2.4
+Click **Create Group**.
+
+---
+
+## 3. Add Users to the Group
+
+### 3.1
+Open the group you created.
+
+Click **Add Users to Group**.
+
+### 3.2
+Select the user you want to add.
+
+Click **Add Users**.
+
+The selected user will now inherit all permissions assigned to the IAM group.
+
+---
+
+## 4. Enable MFA for the Root Account
+
+### 4.1
+From the IAM Dashboard, click **Activate MFA on your root account**.
+
+Then click **Manage MFA**.
+
+
+### 4.2
+Click **Activate MFA**.
+
+
+### 4.3
+Choose one of the available MFA methods.
+
+- Virtual MFA Device (Google Authenticator, Microsoft Authenticator, Authy)
+- Hardware MFA Device
+- Other MFA Device
+
+For this lab, choose **Virtual MFA Device**.
+
+
+### 4.4
+Open your authenticator application.
+
+Scan the QR code.
+
+Enter the two consecutive verification codes.
+
+Click **Assign MFA** to complete the setup.
+
+---
+
+## Lab Summary
+
+In this lab, you learned how to:
+
+- Create an IAM User
+- Create an IAM Group
+- Assign IAM Policies
+- Add Users to IAM Groups
+- Enable MFA for the AWS Root Account
+- Follow AWS IAM Security Best Practices

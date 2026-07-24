@@ -1,0 +1,169 @@
+# Lab 05 - Amazon S3 Cross-Region Replication (CRR)
+
+This lab demonstrates how to configure **Amazon S3 Cross-Region Replication (CRR)** to automatically replicate objects from one S3 bucket to another bucket located in a different AWS Region.
+
+> **Prerequisite:** Versioning must be enabled on both the source and destination buckets before configuring replication.
+
+---
+
+## 1. Configure Cross-Region Replication
+
+### 1.1
+Open the **Amazon S3 Console**.
+
+Select the source bucket where you want to configure replication.
+
+Click the **Management** tab.
+
+
+
+### 1.2
+Under **Replication Rules**, click **Create Replication Rule**.
+
+---
+
+### 1.3
+Configure the replication rule.
+
+You can choose to replicate:
+
+- All objects in the bucket
+- Objects with a specific prefix
+- Objects with a specific tag
+
+For this lab, select **Apply to all objects in the bucket**.
+
+
+
+---
+
+## 2. Configure the Destination Bucket
+
+### 2.1
+In the **Destination** section, choose one of the following options:
+
+- Select an existing destination bucket
+- Create a new destination bucket
+
+For this lab, select **Create a new bucket**.
+
+
+
+### 2.2
+Enter a **globally unique bucket name**.
+
+Select the AWS Region where the replication bucket will be created.
+
+---
+
+### 2.3
+You can also configure:
+
+- Destination Storage Class
+- Change Replica Ownership
+- Replica Modification Sync
+
+For this lab, keep the default settings.
+
+---
+
+## 3. Configure the IAM Role
+
+### 3.1
+Amazon S3 requires an IAM Role to perform replication between buckets.
+
+Allow Amazon S3 to create a new IAM Role automatically.
+
+This role grants permission to:
+
+- Read objects from the source bucket
+- Replicate objects to the destination bucket
+- Manage replication metadata
+
+
+
+---
+
+## 4. Review the Configuration
+
+### 4.1
+Review all replication settings.
+
+Click **Save** or **Confirm** to create the replication rule.
+
+---
+
+## 5. Verify the Destination Bucket
+
+### 5.1
+After the replication rule has been created, verify that the destination bucket has been created successfully.
+
+---
+
+## 6. Test Object Replication
+
+### 6.1
+Open the **source bucket**.
+
+### 6.2
+Upload a test file.
+
+### 6.3
+Wait a few moments for replication to complete.
+
+---
+
+## 7. Verify Replication
+
+### 7.1
+Open the **destination bucket**.
+
+### 7.2
+Confirm that the uploaded object has been replicated successfully.
+
+The replicated object should contain the same:
+
+- File name
+- Metadata
+- Version ID
+- Encryption settings (if configured)
+
+---
+
+## 8. Test Delete Behavior
+
+### 8.1
+Return to the **source bucket**.
+
+Delete the uploaded object.
+
+### 8.2
+Open the **destination bucket**.
+
+Verify whether the replicated object still exists.
+
+> **Note:** By default, deleting an object from the source bucket **does not delete** the replicated object in the destination bucket. Delete marker replication must be explicitly enabled if you want delete operations to be replicated.
+
+---
+
+# Lab Summary
+
+In this lab, you learned how to:
+
+- Create an Amazon S3 Cross-Region Replication (CRR) rule
+- Configure replication for all objects in a bucket
+- Create a destination bucket in another AWS Region
+- Configure the required IAM Role for replication
+- Automatically replicate objects across AWS Regions
+- Verify successful object replication
+- Understand how delete operations behave with Cross-Region Replication
+
+---
+
+## AWS Best Practices
+
+- Enable **Versioning** on both source and destination buckets.
+- Enable **Server-Side Encryption (SSE)** for replicated objects.
+- Use **Cross-Region Replication (CRR)** for disaster recovery and business continuity.
+- Monitor replication status using **Amazon CloudWatch** and **S3 Replication Metrics**.
+- Follow the **Principle of Least Privilege** when configuring IAM Roles for replication.

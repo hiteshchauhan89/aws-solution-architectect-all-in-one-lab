@@ -1,0 +1,114 @@
+# Lab 04 - Amazon S3 Versioning
+
+This lab demonstrates how to enable versioning on an existing Amazon S3 bucket and manage multiple versions of an object.
+
+---
+
+## 1. Enable S3 Versioning
+
+### 1.1
+Open the Amazon S3 Console.
+
+Select the bucket you created in **Lab 03**.
+
+Click the **Properties** tab.
+
+### 1.2
+Scroll down to the **Bucket Versioning** section.
+
+Click **Edit**, select **Enable**, and then click **Save Changes**.
+
+> **Note:** Once versioning is enabled, Amazon S3 keeps multiple versions of an object whenever it is updated or replaced.
+
+---
+
+## 2. Upload the First Version of an Object
+
+### 2.1
+Return to the bucket's main page.
+
+### 2.2
+Click **Upload** and upload a **TXT** file containing some sample text.
+
+Follow the same upload procedure described in **Lab 03**.
+
+### 2.3
+After the upload is complete, verify that the object appears in the bucket.
+
+If necessary, make the object public (as demonstrated in **Lab 03**) and open the object's URL in your web browser.
+
+The contents of the text file should be displayed.
+
+---
+
+## 3. Upload a New Version of the Object
+
+### 3.1
+Edit the TXT file on your computer.
+
+Keep the **same file name**, but change its contents.
+
+### 3.2
+Upload the modified file to the **same S3 bucket**.
+
+Since versioning is enabled, Amazon S3 will create a **new version** of the object instead of replacing the existing one.
+
+---
+
+## 4. View Object Versions
+
+### 4.1
+Open the uploaded object.
+
+### 4.2
+On the object details page, select **Latest Version**.
+
+Verify that both versions of the object are listed.
+
+Each version has its own:
+
+- Version ID
+- Upload Date
+- Size
+- Storage Class
+
+---
+
+## 5. Verify the Updated Object
+
+### 5.1
+Copy the object's URL again or simply refresh the browser page that was already displaying the object.
+
+### 5.2
+The updated contents of the TXT file should now be displayed.
+
+The latest uploaded version becomes the current version automatically.
+
+---
+
+## 6. Manage Object Versions
+
+From the **Versions** menu, you can manage every saved version of the object.
+
+Available actions include:
+
+- Download any previous version
+- Delete a specific version
+- View version details
+- Restore previous content by managing object versions
+
+> **Note:** Deleting the latest version does not necessarily delete the object permanently. Previous versions remain available unless they are explicitly removed.
+
+---
+
+## Lab Summary
+
+In this lab, you learned how to:
+
+- Enable Amazon S3 Versioning
+- Upload multiple versions of the same object
+- View object version history
+- Access the latest version of an object
+- Download or delete previous object versions
+- Understand how Amazon S3 protects data from accidental overwrites and deletions using versioning
+```
